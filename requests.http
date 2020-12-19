@@ -1,0 +1,9 @@
+## Current Weather
+
+### Get by ID (London)
+
+GET http://localhost:4004/weather/CurrentWeather/2643743
+
+### Get by city name
+
+GET http://localhost:4004/weather/CurrentWeather?$filter=city%20eq%20%27Paris%27
