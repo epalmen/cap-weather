@@ -8,8 +8,8 @@ type WeatherCondition : {
 }
 
 entity Weather {
-  id      : Integer64;
-  city    : String;
-  country : String;
-  current : WeatherCondition
+  key id      : Integer64;
+      city    : String;
+      country : String;
+      current : WeatherCondition
 }
