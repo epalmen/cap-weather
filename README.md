@@ -1,25 +1,25 @@
 # Getting Started
 
-Welcome to your new project.
+This is a simple app that demonstrates how to consume a REST service in an [SAP Cloud Application Programming Model](https://cap.cloud.sap/docs/) app and use it as data source for an OData V4 API.
 
-It contains these folders and files, following our recommended project layout:
+The app defines a simple weather data model and spawns an OData V4 service on top of it. The weather data is not provided by the app itself but is fetched from the [OpenWeather REST API](https://openweathermap.org/current) that is consumed via CAP's [`RemoteService`](https://cap.cloud.sap/docs/node.js/remote-services) API.
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+## Installation
 
+To try out the sample app on your own, you will need an API key from [OpenWeatherMap.org](https://openweathermap.org/api).
 
-## Next Steps
+After cloning this repo, create an `.env` file in the project root like this:
 
-- Open a new terminal and run `cds watch` 
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
+```bash
+OPEN_WEATHER_API_KEY=<your API key>
+```
 
+Then run `npm install` in the root of your project.
 
-## Learn More
+Start the server by `cds watch` or `cds run`.
 
-Learn more at https://cap.cloud.sap/docs/get-started/.
+## Calling the API
+
+You can find some sample requests in [`requests.http`](./requests.http).
+
+Get the weather for a city of your choice by using `$filter`, like `GET /weather/CurrentWeather?$filter=city eq 'Berlin'`. Alternatively, you can use the city ID, for example `GET /weather/CurrentWeather/2643743`.
