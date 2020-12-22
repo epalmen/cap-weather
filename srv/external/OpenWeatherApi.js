@@ -35,7 +35,7 @@ function parseQueryParams(req) {
     parseExpression(select.where)
   );
 
-  if (!Object.keys.length) {
+  if (!Object.keys(filter).length) {
     throw new Error("At least one filter is required");
   }
 
@@ -80,6 +80,18 @@ function parseExpression(expr) {
   return parsed;
 }
 
-function parseResponse(response) {}
+function parseResponse(response) {
+  return {
+    id: response.id,
+    city: response.name,
+    country: response.sys.country,
+    current: {
+      description: response.weather[0].description,
+      temperature: response.main.temp,
+      humidity: response.main.humidity,
+      windSpeed: response.wind.speed,
+    },
+  };
+}
 
 module.exports = OpenWeatherApi;

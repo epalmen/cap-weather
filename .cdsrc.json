@@ -1,4 +1,7 @@
 {
+  "odata": {
+    "flavor": "x4"
+  },
   "requires": {
     "OpenWeatherApi": {
       "impl": "srv/external/OpenWeatherApi.js",
