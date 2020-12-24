@@ -6,7 +6,7 @@ class OpenWeatherApi extends cds.RemoteService {
 
     this.before("READ", "*", (req) => {
       try {
-        const queryParams = parseQueryParams(req);
+        const queryParams = parseQueryParams(req.query.SELECT);
         const queryString = Object.keys(queryParams)
           .map((key) => `${key}=${queryParams[key]}`)
           .join("&");
@@ -25,9 +25,7 @@ class OpenWeatherApi extends cds.RemoteService {
   }
 }
 
-function parseQueryParams(req) {
-  const select = req.query.SELECT;
-
+function parseQueryParams(select) {
   const filter = {};
   Object.assign(
     filter,

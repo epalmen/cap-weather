@@ -4,8 +4,8 @@
   },
   "requires": {
     "OpenWeatherApi": {
+      "kind": "rest",
       "impl": "srv/external/OpenWeatherApi.js",
-      "path": "https://api.openweathermap.org/data/2.5",
       "credentials": {
         "url": "https://api.openweathermap.org/data/2.5"
       }
